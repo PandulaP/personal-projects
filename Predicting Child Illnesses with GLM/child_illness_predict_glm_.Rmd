@@ -1,11 +1,11 @@
 ---
-title: "Can logistic regression predict illness?"
+title: "Can GLMs be used to predict illness?"
 author: "Pandula Priyadarshana"
+
+output: rmarkdown::github_document
 ---
 
-**A simple user-case study**
-
-## About the dataset
+## About the data
 
 *Kyphosis* is a spinal deformity found in young children who have corrective spinal surgery. The incidence of spinal deformities following corrective spinal surgery is thought to be related to the *Age* (in months) at the time of surgery, *Start* : the starting vertebra for the surgery and *Number* : the number of vertebra involved in the surgery).
 
@@ -20,7 +20,7 @@ First I import the data in to R and try to get a sense of it.
 
 ```{r, echo=FALSE}
 
-kyphosis <- read.csv("C:/Users/PandulaP/Desktop/PetProjects/GLM/Datasets/kyphosis.r", sep="")
+kyphosis <- read.csv("C:/Users/PandulaP/Documents/GitHub/personal-projects/Predicting Child Illnesses with GLM/kyphosis.r", sep="")
 
 head(kyphosis)
 
