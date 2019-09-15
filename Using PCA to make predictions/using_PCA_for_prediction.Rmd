@@ -1,0 +1,183 @@
+---
+title: "How to use Principal Component Analysis (PCA) to make Predictions"
+author: "Pandula Priyadarshana"
+date: "November 30, 2018"
+
+output: rmarkdown::github_document
+---
+
+
+In this project, I discuss about how Principal Component Analysis (PCA) can be used to make simple predictions.
+
+For illustration purposes, we will perform our analysis on a dataset which contains information about car purchases made within 3 different price groups and the set of characteristics which had influenced their purchasing decision.
+
+First, we will importing the dataset and explore its structure.
+
+
+```{r echo = T}
+
+car_pref <- read.csv("C:/Users/PandulaP/Documents/GitHub/personal-projects/Using PCA to make predictions/carpreference.r", sep="")
+attach(car_pref)
+
+head(car_pref)
+str(car_pref)
+
+```
+---
+
+As we know, PCA uses Euclidian distances to derive the components, thus the input variables needs to be numeric.
+And as we can observe, except the 'Group' variable, all the data is in numeric format, so we do not have to perform any transformations.
+
+In order to see how the numeric varibles are behaving among within the 3 price groups, I generate box-plots for each numerical variable separately.
+
+```{r echo = T}
+
+library(reshape2)
+car_pref.m <- melt(car_pref)
+
+library(ggplot2)
+
+plot1 <- ggplot(car_pref.m, aes(x = variable, y = value, fill = Group)) +
+    geom_boxplot() +
+    scale_fill_manual(values = c("plum", "gold2","ivory4")) +
+    ggtitle("Characteristics by Price-Groups") +
+    xlab("Characteristic") + ylab("Value")
+    
+
+print(plot1)
+```
+
+By observing the above chart, we can understand that the consumers of each price group have different views (i.e., given different ratings) for the considered characteristics.
+(with less variation on 'Safety' characteristics, which is having a higher ranking/importance among all 3 price groups)
+
+Now to better visualize how these 3 price-group clusters occur in a 3D space, I construct a 3D plot using the 3 characteristic variables which shows significant difference among
+given ratings.
+
+```{r}
+
+library(scatterplot3d)
+
+colors <- c("blue", "red", "dark green")
+colors = colors[as.numeric(Group)]
+sample_3d_plot <- with(car_pref, scatterplot3d(Environment,Innovation,Prestige, color = colors, pch = 19, box = FALSE))
+legend(sample_3d_plot$xyz.convert(4.5, 5.05, 14), legend = levels(car_pref$Group), col =  c("blue", "red", "dark green"), pch = 16)
+
+```
+
+On the above plot, we can see a clear differentiation among the data points (clusters) coming from each price group.
+
+Before moving on to apply PCA, now I will check if there exists any correlation between the input variables.
+
+```{r}
+library(corrplot)
+
+cor_vals <- round(cor(car_pref[,2:5]),4)
+
+corrplot(cor_vals, type = "upper", order = "hclust", tl.col = "black", tl.srt = 45)
+```
+
+As it's seen, 'Innovation', 'Safety' and 'Prestige' features seem to have a noticable correlation among them.
+
+Generally when constructing a model, we drop some of these (unneccessary) correlated predictors without including to the model,
+but given that we are performing PCA, we are not going to do that as the idea of applying PCA is to generate new principal components (which would not be correlated to each other)
+and replace the current set of predictors with a reduced dimension.
+
+
+```{r}
+library(dplyr)
+
+car_pref_reduced <- car_pref %>% select(-Group)
+
+pca_model <- prcomp(car_pref_reduced, scale. = TRUE, center = TRUE)
+
+summary(pca_model)
+
+```
+
+By observing the output of the PCA, we can see that the first two PC's explain 89% of the variability in the data. 
+
+And by including 3 PC's, the model will explain 97% of the variablility, but since 2 PC's explains roughly ~90% of the data, I am going to settle down only with 2 PC's.
+
+Moreover, by observing the below scree-plot and the importance of each PC, we can also understand that it's agreeable to settle down only with two PCs.
+
+```{r}
+summary_pca_model = summary(pca_model)
+
+plot(pca_model,type = "l", main ="Scree plot for PCA")
+
+plot(summary_pca_model$importance[3,],type="l")
+
+```
+
+Since we are only sticking to first two Principal Components, now I check the amount of influence that each predictor variable has on each principal component.
+
+below I have arranged the characteristics in descending order with respect to the influence that they have on each PC.
+
+```{r}
+
+#For PC 1
+loading_Scores_PC_1 <- pca_model$rotation[,1]
+fac_scores_PC_1 <- abs(loading_Scores_PC_1)
+fac_scores_PC_1_ranked <- names(sort(fac_scores_PC_1,decreasing = T))
+
+#For PC 2
+loading_Scores_PC_2 <- pca_model$rotation[,2]
+fac_scores_PC_2 <- abs(loading_Scores_PC_2)
+fac_scores_PC_2_ranked <- names(sort(fac_scores_PC_2,decreasing = T))
+
+print("for PC 1")
+pca_model$rotation[fac_scores_PC_1_ranked,1]
+
+print("for PC 2")
+pca_model$rotation[fac_scores_PC_2_ranked,2]
+
+```
+
+Now we finally plot the original data on these two PC's and check if we can separately identify the data points of each Price Groups.
+
+```{r}
+library(ggplot2)
+
+scores <- data.frame(car_pref, pca_model$x[,1:2])
+
+#PC_1n2 <- qplot(x=PC1, y=PC2, data=scores, colour=factor(car_pref$Group)) + theme(legend.position="none")
+#print(PC_1n2)
+
+plot_2 <-ggplot(scores,aes(x=PC1,y=PC2,color=Group )) + geom_point(size =2) + labs(title="Plotting Customer Data against PC1 and PC2")
+
+print(plot_2)
+
+```
+
+We can see that the data points are clustered according to the each price that they fall in!
+
+Using above feature, now we will try to predict which type of a car a person would buy considering the ratings that he/she would give for the considered characteristics!
+
+Lets assume a customer who've given the following ratings for each characteristic:
+
+Safety: 9 Environment: 8 Innovation: 5 Prestige: 4
+
+Now lets try to predict to which Price Group this customer would fall into:
+
+```{r}
+
+new_customer <- c(9,8,5,4)
+
+car_pref_reduced_w_nc <- rbind(car_pref_reduced,new_customer)
+
+new_cus_group <- predict(pca_model, newdata = car_pref_reduced_w_nc[nrow(car_pref_reduced_w_nc),])
+new_cus_group_PC1_PC2 <- new_cus_group[, 1:2]
+
+
+
+plot_3 <- plot_2 + geom_point(aes(x=new_cus_group_PC1_PC2[1], y=new_cus_group_PC1_PC2[2]), colour="blue", size =4)
+
+plot_3 <- plot_3 + labs(title="Plotting new observation against PC1 and PC2")
+
+print(plot_3)
+
+
+```
+
+By observing the placement of this new observation on the PC1 and PC2, we can conclude that the new customer is more likely to buy a car which would call in to Price Group B!
+I personally use this approach if I am needed to make few distinct predictions since it's really fast and easy to understand and interpret. This approach can be scaled up to build PC Regression models, especially when the predictors are correlated and needs to be regularized. 
