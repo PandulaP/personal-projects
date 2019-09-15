@@ -1,0 +1,176 @@
+---
+title: "Logistic Regression Model Comparison"
+author: "Pandula Priyadarshana"
+date: "December 15, 2018"
+
+output: rmarkdown::github_document
+---
+
+This project aims to provide a simple illustration on how we can develop different logistic regression models by considering subsets of predictor variables and then compare these models against each other to decide the best. 
+
+For the modelling purposes, I will be using a dataset containing information about a spinal deformity called *Kyphosis*. Kyphosis is found in young children who have undergone corrective spinal surgery and the incidence of spinal deformities following corrective spinal surgery is thought to be related to the Age (in months) at the time of surgery, Start (the starting vertebra for the surgery) and Num (the number of vertebrae involved in the surgery).
+
+Keeping above information in mind, let's first import the dataset and explore it's composition and structure.
+
+```{r}
+
+kyphosis <- read.csv("C:/Users/PandulaP/Documents/GitHub/personal-projects/Logistic Regression Model Comparison/kyphosis.r", sep="")
+
+head(kyphosis)
+
+str(kyphosis)
+
+```
+
+As it's seen above, the response is a binary variable and the predictor variables are of integer type.
+
+Now let's plot the response variable against `age` data. Here I use a box-plot and a conditional density plot to illustrate the data points.
+
+```{r}
+
+boxplot(Age ~ Kyphosis,data = kyphosis, 
+        col = "bisque",
+        xlab = " Incidence of Pyphosis",
+        ylab = "Age (in months)",
+        main = "Incidence of Kyphosis vs. Age of Child")
+
+cdplot(Kyphosis~Age, kyphosis,
+       col=c("lightgoldenrod", "lightcyan"), 
+       ylab = "Incidence of Pyphosis", xlab ="Age (in months)", main = "Conditional density plot")
+
+```
+
+By observing the box-plot, we can understand that, the age distribution for `absent` is more wide spread than of the `present` incidences. Thus, even though we can assume to expect a difference in `age` variable for the two levels of response variable, at the same time, its observable that the `present` incidences and the `absent` incidences overlap on the same `age` range.
+
+Furthermore, by looking at the 'Conditional density plot', we can see that, age towards the two extremes (i.e., lower-end and higher-end) results with higher `absent` incidence whereas the probability of observing a `present` incidence is high around the 60 to 140 months age range (but still less than 40%)
+
+Now given that our response variable is of binary type, we first fit a `simple logistic regression` model for the incindence of Kyphosis against 'age':
+
+```{r}
+
+model_1 <- glm(Kyphosis~Age,data = kyphosis, family = binomial(link="logit"))
+
+summary(model_1)
+
+
+```
+
+By observing the results of the fitted model, we can see that, the `age` variable itself does not account to result with a good model. It's p-value is high and therefore does not appear to be of any significance to the model which only includes the intercept.
+
+
+Now, in oder to see if by adding the `quadratic` term of the `age` variable would result with a significance, I include it to another model and fit the second model for the data.
+
+```{r}
+
+model_2 <- glm(Kyphosis~ Age + I(Age^2),
+               data = kyphosis,
+               family = binomial(link="logit"))
+
+summary(model_2)
+
+
+```
+
+Now as it's observed, by including the `quadratic age` term to the model, the model has improved from the privious one while making both the linear and quadratic age terms significant for the model as well.
+
+AIC value for the second model has decresed and the `Age` and `Age^2` both has become significant at 5% significance level.
+
+To further check whether 2nd model is better than the first, I also fit an anova() for these two models:
+
+```{r}
+
+anova(model_1,model_2,test='LR')
+
+```
+
+And by looking at the above resulted p-value, its evident that, by including the quadratic term of the age variable, model has significantly improved against the model which only has the linear age term.
+
+Furthermore, in order to explain the scenario of `linear` term of age variable becoming significant in the 2nd model, we can assume that, once the `quadratic` term of the age variable gets included in to the model to predict the response, the resulting/remaining residuals would be explained from the `linear` term of the age variable, thus it becomes significant for the second model (even though the linear term alone is not siginificant to predict the response -- as seen on the first model)
+
+Now, we proceed ahead and include the variable `Number` to the above model and check for the output.
+
+```{r}
+
+model_3 <- glm(Kyphosis~ Age + I(Age^2) + Number,
+               data = kyphosis, 
+               family = binomial(link="logit"))
+
+summary(model_3)
+
+
+```
+
+Looking at the AIC value, we can determine that, `model 3` seems to be a better model than the `model 2` and also, all 3 predictor variables we've included to the model have become signifacant (p-values calculated by wald-test)
+
+To further assure our conclusion, I again run an anova to compare these two models:
+
+```{r}
+anova(model_2,model_3,test='LR')
+```
+
+Here, we can clearly decide that, by including `Number` to the model, we've obtained a better model with lesser residual devience.
+
+Moving further, now we construct another model using the below set of variables and combinations:
+
+`Age, Num, AgeSq, NumSq, Age*Num`
+
+```{r}
+
+model_4 <- glm(Kyphosis~ Age + Number + I(Age^2) + I(Number^2) + Age*Number,
+               data = kyphosis, 
+               family = binomial(link="logit"))
+
+summary(model_4)
+
+```
+
+The resulting model does seems to be better than the previous model (as the AIC value is lesser), but the difference in AIC i is small, thus does not indicate much stronger evidence against the previous model. 
+
+Further, the quadratic `Number` term and the `age:number` interaction terms appear to be non-significant for the model.
+
+In order to further verify which model acts better over the given data, I run below tests over these two models:
+
+
+```{r}
+
+BIC(model_3,model_4)
+
+anova(model_3,model_4,test='LR')
+
+```
+
+We know that, AIC does not penalize the number of parameters included in the model as strongly as BIC. Since we did not have a huge difference in AIC for `model 3` and `model 4`, BIC tests helps comparing these two models and as suspected, the `model 3` has the lower value, therefore can be considered as the better model among these two.
+
+Furthermore, anova test also supports this conclusion since, by adding those extra-variables to the model 4, we have not achieved any significant reduction in residual deviance (at 5% significance level).
+
+Now finally, we include the variable `Start` to the model 3rd model (since its the best model we've developed so far) and check if it would results with a better model
+
+```{r}
+
+model_5 <- glm(Kyphosis~ Age + Number + Start + I(Age^2) ,
+               data = kyphosis, 
+               family = binomial(link="logit"))
+
+summary(model_5)
+
+
+```
+
+Now comparing `model 3` against `model 5`, we can see that the reduction in AIC is significant, therefore `model 5` seems to be a better model. But in `model 5`, `Number` variable has become non-significant after adding the `Start` to the `model 3`, but we cannot drop it just because of having a low p-value for the wald-test as the test assumes other variables to be in the model when running it.
+
+Now to get a better sense of which model is better, I run the same tests that I ran above comparing these two:
+
+```{r}
+
+BIC(model_3,model_5)
+
+anova(model_3,model_5,test='LR')
+
+anova(model_5,test='LR')
+
+```
+
+Here, by observing the results (significant reduction in residual devience and lower BIC value), we can conclude that `model 5` appears to be the best model to predict the response variable.
+
+Also, but observing the anova() procedure run for the `model 5`, we can determine that all variables included in the model appears to be significant as well (since the quadratic `age` term is significant, we would not be dropping out the linear term even though it appears to have a high p-value)
+

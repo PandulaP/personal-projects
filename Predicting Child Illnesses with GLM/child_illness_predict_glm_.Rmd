@@ -1,0 +1,235 @@
+---
+title: "Can logistic regression predict illness?"
+author: "Pandula Priyadarshana"
+---
+
+**A simple user-case study**
+
+## About the dataset
+
+*Kyphosis* is a spinal deformity found in young children who have corrective spinal surgery. The incidence of spinal deformities following corrective spinal surgery is thought to be related to the *Age* (in months) at the time of surgery, *Start* : the starting vertebra for the surgery and *Number* : the number of vertebra involved in the surgery).
+
+We are interested in finding how each of these factors influence Kyphosis for a particular child and quantify this relationship in a model so that we can predict the probability of a child getting Kyphosis given the information about influencing variables.
+
+
+
+## EDA on Dataset
+
+First I import the data in to R and try to get a sense of it.
+
+
+```{r, echo=FALSE}
+
+kyphosis <- read.csv("C:/Users/PandulaP/Desktop/PetProjects/GLM/Datasets/kyphosis.r", sep="")
+
+head(kyphosis)
+
+str(kyphosis)
+
+```
+
+As it's seen above, the response variable *Kyphosis* is binary and the predictors are of integer type. Therefore, for modelling, we will have to consider a **GLM** : **logistic regression** model.
+
+Prior moving on to the modeling procedure, I am going to understand how the response variable behave against predictor variables.
+
+
+### Kyphosis vs. Predictors
+
+Here I plot the response variable against `Age` data. 
+
+I am simply using a box-plot and a conditional density plot to illustrate the behavior.
+
+
+```{r, echo=FALSE}
+
+library(dplyr) 
+library(ggplot2)
+library(cowplot)
+
+bx_1 <- ggplot(kyphosis, aes(x=Kyphosis, y=Age)) +
+          geom_boxplot(
+            # custom boxes
+              color="blue",
+              fill="blue",
+              alpha=0.2) +
+          ggtitle("Incidence of Kyphosis vs. Age of Child") +
+          xlab("Incidence of Kyphosis") +
+          ylab("Age (in months)")
+
+cd_1 <- kyphosis %>%
+          ggplot(aes(x = Age, fill = Kyphosis)) +
+          geom_density(position = position_fill(), size = .1) + 
+          scale_fill_brewer(palette = "Set2") +
+          ggtitle("Conditional Density plot") +
+          xlab("Age (in months)") +
+          ylab("Incidence of Kyphosis")
+
+theme_set(theme_cowplot(font_size=10)) 
+plot_grid(bx_1, cd_1, ncol = 2, align = 'h',scale = c(1, 1),  rel_widths = c(1, 1.2))
+
+```
+
+By observing the box-plot, it's observable that the age distribution for **Kyphosis : absent** category is more wide spread than of the **Kyphosis : present** incidences. Therefore, it's possible for us to expect to see a difference state of Kyphosis at different ages of children. But then again, since there is an overlap among these two categories (i.e., **Kyphosis:Present** ages are included within the **Kyphosis:Absent** ages) still it's too easy for us to determine whether the `Age` predictor would have a significant influence on the Kyphosis status.
+
+Furthermore, by looking at the **Conditional density plot**, we can see that, age towards the two extremes (i.e., lower-end and higher-end) results with higher **Kyphosis:Absent** incidence whereas the probability of observing a **Kyphosis:Present** incidence is high around the *60 to 140 months* age range (above 50%).
+
+Similarly, we can check `Num` and `Start` variable distributions against `Kyphosis` presence as below:
+
+```{r, echo=FALSE}
+
+bx_2 <- ggplot(kyphosis, aes(Kyphosis, Start)) +
+          geom_violin(aes(fill = Kyphosis)) +
+          ggtitle("Incidence of Kyphosis vs. \n starting vertebra for the surgery ") + 
+          xlab("Incidence of Kyphosis") +
+          ylab("Starting Vertebra")
+
+bx_3 <- ggplot(kyphosis, aes(Kyphosis, Number)) +
+          geom_violin(aes(fill = Kyphosis)) +
+          ggtitle("Incidence of Kyphosis vs. \n number of vertebra involved in surgery") +
+          xlab("Incidence of Kyphosis") +
+          ylab("Number of Vertebra")
+
+theme_set(theme_cowplot(font_size=10)) 
+plot_grid(bx_2, bx_3, ncol = 2)
+
+````
+
+As we can see, the distribution of `Start` variable does not showcase any significant differences for the two incidences of *Kyphosis* but it's noticable for high *Start* values (appox. above 13), *Kyphosis* is more likely to be *absent*.
+
+With regards to `Number`, there does appead to be different distributions among the *absent* vs *present* Kyphosis incidences, which we can fit a model and further confirm its influence.
+
+## Modeling & Model Comparison
+
+As I noted above, since our our response is of binary type, I first fit a `simple logistic regression` model with linear predictors:
+
+```{r}
+
+glm_bi_1 <- glm(Kyphosis ~ Age + Start + Number ,
+                data = kyphosis, 
+                family = binomial(link="logit"))
+
+summary(glm_bi_1)
+
+```
+
+Looking at the summary of the fitted model, we can see that, the `Start` variable is significant at 5% significance level, while both `Start` and `Number` variables are also significant for the model at 10% significance levels.
+
+Now in order to see if there are any complex behaviors/influences among the predictor variables vs. the response, I check it by only fitting the *quadratic* term of the `Age` variable against `Kyphosis` and check if it result with any significance.
+
+
+```{r, echo=FALSE}
+
+glm_bi_2  <- glm(Kyphosis~ Age + I(Age^2),
+               data = kyphosis,
+               family = binomial(link="logit"))
+
+summary(glm_bi_2)
+
+
+```
+
+Now as it's observed, by including the `quadratic age` term to the model, the model has improved from the privious one while making both the linear and quadratic age terms significant for the model as well.
+
+AIC value for the second model has increased a little when compared with 1st model, but this is with only having `Age` as an input and while making both `Age` and `Age^2` significant at 5% significance level.
+
+Now it's evident that there happens to be complex behaviors among the predictors, therefore, I setup model 3 as the saturate model which considers the *quadratic* variations of these 3 predictor variables.
+
+```{r, echo=FALSE}
+
+glm_bi_3 <- glm(Kyphosis ~ Age + I(Age^2) + Start + I(Start^2) + Number + I(Number^2) ,
+                data = kyphosis, 
+                family = binomial(link="logit"))
+
+summary(glm_bi_3)
+
+
+```
+
+As we can see from the summary output, not all *quadratic* terms becomes significant for the model.
+
+Therefore, I use the below procedure to check for the **best models** having different number of predictor variables.
+
+
+```{r, echo=FALSE}
+
+library(leaps)
+
+models<-regsubsets(Kyphosis ~ Age + I(Age^2) + Start + I(Start^2) + Number + I(Number^2) ,
+                data = kyphosis,
+                nbest = 1,
+                method = "exhaustive")
+
+summary(models)
+
+par(mfrow = c(1,2))
+plot(models, scale = "adjr2", main = "Adjusted R^2")
+plot(models, scale = "Cp", main = "Cp")
+
+
+```
+
+And by looking at the adjusted R^2 (higher) and Cp (lower)values, the best model has both linear and quadratic `Age` terms, and quadratic `Start`term.
+
+Let's fit that model as the best now:
+
+
+```{r, echo=FALSE}
+
+glm_bi_4 <- glm(Kyphosis ~ Age + I(Age^2) + Start + I(Start^2) ,
+                data = kyphosis, 
+                family = binomial(link="logit"))
+
+summary(glm_bi_4)
+
+```
+
+Now, to confirm that there is not significant differences between the saturated model and best model we fit above, lets run a **likelihood ratio** test:
+
+
+```{r}
+
+anova(glm_bi_4,glm_bi_3,test='LR')
+
+```
+
+As you can see on the above output, the result does not contradict our Null hypothesis. Thus we can conclude that, with the use of `glm_bi_4` we can successfully predict **if a child would have Kyphosis or not!**
+
+To see how the **probability of having Kyphosis** change at different **age** values and **start** values, We can plot the following: 
+
+```{r, echo=FALSE}
+
+age_range = seq(from = 0, to = 200, by = 1)
+start_range = seq(from = 0, to = 18, by = 0.5)
+
+logOdds_present_age = - 4.1855978 + 
+                        (0.0816004 * age_range) - (0.0004092*(age_range^2)) + 
+                        (0.5619041* 0) - ( 0.0481986* (0^2))
+
+probY_present_age = exp(logOdds_present_age)/(1+exp(logOdds_present_age))
+
+logOdds_present_start = - 4.1855978 + 
+                        (0.0816004 * 0) - (0.0004092*(0^2)) + 
+                        (0.5619041* start_range) - ( 0.0481986* (start_range^2))
+
+probY_present_start = exp(logOdds_present_start)/(1+exp(logOdds_present_start))
+
+plot(x=age_range,y = probY_present_age, 
+      type = 'l',
+      lwd=2, 
+      ylab="Prob having Kyphosis",
+      xlab ="Age (in months)", 
+      main="Estimated probabilities of having Kyphosis \n at different Ages (independent of Start)")
+
+plot(x=start_range,y = probY_present_start, 
+      type = 'l', 
+      lwd=2, 
+      ylab="Prob having Kyphosis", 
+      xlab ="Starting vertebra for the surgery", 
+      main="Estimated probabilities of having Kyphosis \n at different starting # vertebra (independent of Age)")
+
+
+
+```
+
+Above plots helps us to understand which `Age` and `Start` values we should be cautious about in trying to avoid the possibility of a child getting Kyphosis (i.e., to keep the the probability below 0.5)
+
