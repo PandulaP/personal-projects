@@ -1,0 +1,7 @@
+phrase_1_go_through_opening : "go through opening",
+phrase_2_move_down : "move down",
+phrase_3_move_up : "move up",
+phrase_4_move_to_left : "move to left",
+phrase_5_move_to_right : "move to right",
+phrase_6_turn_left : "turn left",
+phrase_7_turn_right : "turn right"
