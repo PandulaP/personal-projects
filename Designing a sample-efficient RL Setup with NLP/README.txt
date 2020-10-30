@@ -8,19 +8,19 @@ This folder contains the below 7 folders.
 
 2. generate_image_emd
  - contains the notebook used to create image embeddings
- - contains the image embedding vectors saved as a .json
+ - contains the image embedding vectors saved as a .json [removed due to size from GIT]
 
 3. generate_text_emd
  - contains the notebook used to create sentence embeddings
- - contains the sentence embedding vectors saved as a .json
+ - contains the sentence embedding vectors saved as a .json [removed due to size from GIT]
 
 4. generate_combined_emb
  - contains the notebook used to create combined embeddings
- - contains the `correct' and `incorrect' combined embedding vectors saved as .json files (correct: related image-sentence embeddings, incorrect: o/w)
+ - contains the `correct' and `incorrect' combined embedding vectors saved as .json files (correct: related image-sentence embeddings, incorrect: o/w) [removed due to size from GIT]
 
 5. I-LEARN
  - contains the notebook in which I prepare the training data and train the I-LEARN model
- - contains the weights of the trained I-LEARN model (saved model)
+ - contains the weights of the trained I-LEARN model (saved model) [removed due to size from GIT]
 
 6. reward_generation_process
  - contains the notebook which contains the langugage-based intermediate (shaping) reward generating function
