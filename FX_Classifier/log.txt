@@ -1,1 +1,68 @@
 |ERROR|2020-10-31 19:01:37,669|Socket returns unknown error.
+|ERROR|2020-10-31 19:12:05,183|FXCM Server reports an unknown error: {'executed': False, 'error': ''}.
+|ERROR|2020-10-31 19:12:05,183|Can not parse server answer to json object: {"response":{"executed":false,"error":""},"instrument_id":"1","period_id":"m1","candles":[]}.
+|ERROR|2020-10-31 19:12:17,066|FXCM Server reports an unknown error: {'executed': False, 'error': ''}.
+|ERROR|2020-10-31 19:12:17,066|Can not parse server answer to json object: {"response":{"executed":false,"error":""},"instrument_id":"1","period_id":"m1","candles":[]}.
+|ERROR|2020-10-31 19:13:19,246|Server reports an error: {'executed': False, 'error': 'Invalid settings of parameneters.'}.
+|ERROR|2020-10-31 19:13:19,247|URL: https://api-demo.fxcm.com:443/candles/1/m1?num=100&from=1577836800
+|ERROR|2020-10-31 19:13:19,247|Headers: {'User-Agent': 'request', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Authorization': 'Bearer MkzH9jgHytINgW2fABVH21eebfcfacfecacfcbf3a5fe71db3fefbdeeaa71', 'Content-Type': 'application/x-www-form-urlencoded'}
+|ERROR|2020-10-31 19:13:19,247|Params: {'num': 100, 'from': 1577836800}
+|ERROR|2020-10-31 19:13:19,248|Bearer token: Bearer MkzH9jgHytINgW2fABVH21eebfcfacfecacfcbf3a5fe71db3fefbdeeaa71
+|ERROR|2020-10-31 19:13:19,248|Connection status: established
+|ERROR|2020-10-31 19:13:19,248|Socket session id: MkzH9jgHytINgW2fABVH
+|ERROR|2020-10-31 19:13:19,248|Can not parse server answer to json object: {"response":{"executed":false,"error":"Invalid settings of parameneters."},"instrument_id":"1","period_id":"m1","candles":[]}.
+|ERROR|2020-10-31 19:13:41,403|FXCM Server reports an unknown error: {'executed': False, 'error': ''}.
+|ERROR|2020-10-31 19:13:41,404|Can not parse server answer to json object: {"response":{"executed":false,"error":""},"instrument_id":"1","period_id":"m1","candles":[]}.
+|ERROR|2020-10-31 19:14:12,295|FXCM Server reports an unknown error: {'executed': False, 'error': ''}.
+|ERROR|2020-10-31 19:14:12,295|Can not parse server answer to json object: {"response":{"executed":false,"error":""},"instrument_id":"1","period_id":"m15","candles":[]}.
+|ERROR|2020-10-31 19:14:13,418|FXCM Server reports an unknown error: {'executed': False, 'error': ''}.
+|ERROR|2020-10-31 19:14:13,418|Can not parse server answer to json object: {"response":{"executed":false,"error":""},"instrument_id":"1","period_id":"m15","candles":[]}.
+|ERROR|2020-10-31 19:15:09,285|FXCM Server reports an unknown error: {'executed': False, 'error': ''}.
+|ERROR|2020-10-31 19:15:09,285|Can not parse server answer to json object: {"response":{"executed":false,"error":""},"instrument_id":"1","period_id":"m15","candles":[]}.
+|ERROR|2020-10-31 19:15:30,998|FXCM Server reports an unknown error: {'executed': False, 'error': ''}.
+|ERROR|2020-10-31 19:15:30,998|Can not parse server answer to json object: {"response":{"executed":false,"error":""},"instrument_id":"1","period_id":"m15","candles":[]}.
+|ERROR|2020-10-31 19:16:46,283|FXCM Server reports an unknown error: {'executed': False, 'error': ''}.
+|ERROR|2020-10-31 19:16:46,283|Can not parse server answer to json object: {"response":{"executed":false,"error":""},"instrument_id":"1","period_id":"M1","candles":[]}.
+|ERROR|2020-10-31 19:17:59,725|FXCM Server reports an unknown error: {'executed': False, 'error': ''}.
+|ERROR|2020-10-31 19:17:59,725|Can not parse server answer to json object: {"response":{"executed":false,"error":""},"instrument_id":"8006","period_id":"m15","candles":[]}.
+|ERROR|2020-10-31 19:19:52,142|FXCM Server reports an unknown error: {'executed': False, 'error': ''}.
+|ERROR|2020-10-31 19:19:52,142|Can not parse server answer to json object: {"response":{"executed":false,"error":""},"instrument_id":"1","period_id":"M1","candles":[]}.
+|ERROR|2020-10-31 19:20:37,454|Server reports an error: {'executed': False, 'error': 'Invalid settings of parameneters.'}.
+|ERROR|2020-10-31 19:20:37,454|URL: https://api-demo.fxcm.com:443/candles/1/M1?num=10&from=1577836800
+|ERROR|2020-10-31 19:20:37,454|Headers: {'User-Agent': 'request', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Authorization': 'Bearer 9HhwHYUoQz3ENZVoABXf21eebfcfacfecacfcbf3a5fe71db3fefbdeeaa71', 'Content-Type': 'application/x-www-form-urlencoded'}
+|ERROR|2020-10-31 19:20:37,454|Params: {'num': 10, 'from': 1577836800}
+|ERROR|2020-10-31 19:20:37,455|Bearer token: Bearer 9HhwHYUoQz3ENZVoABXf21eebfcfacfecacfcbf3a5fe71db3fefbdeeaa71
+|ERROR|2020-10-31 19:20:37,455|Connection status: established
+|ERROR|2020-10-31 19:20:37,455|Socket session id: 9HhwHYUoQz3ENZVoABXf
+|ERROR|2020-10-31 19:20:37,455|Can not parse server answer to json object: {"response":{"executed":false,"error":"Invalid settings of parameneters."},"instrument_id":"1","period_id":"M1","candles":[]}.
+|ERROR|2020-10-31 19:21:08,820|Server reports an error: {'executed': False, 'error': 'Invalid settings of parameneters.'}.
+|ERROR|2020-10-31 19:21:08,820|URL: https://api-demo.fxcm.com:443/candles/1/M1?num=10&from=1601510400
+|ERROR|2020-10-31 19:21:08,820|Headers: {'User-Agent': 'request', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Authorization': 'Bearer 9HhwHYUoQz3ENZVoABXf21eebfcfacfecacfcbf3a5fe71db3fefbdeeaa71', 'Content-Type': 'application/x-www-form-urlencoded'}
+|ERROR|2020-10-31 19:21:08,820|Params: {'num': 10, 'from': 1601510400}
+|ERROR|2020-10-31 19:21:08,821|Bearer token: Bearer 9HhwHYUoQz3ENZVoABXf21eebfcfacfecacfcbf3a5fe71db3fefbdeeaa71
+|ERROR|2020-10-31 19:21:08,821|Connection status: established
+|ERROR|2020-10-31 19:21:08,821|Socket session id: 9HhwHYUoQz3ENZVoABXf
+|ERROR|2020-10-31 19:21:08,821|Can not parse server answer to json object: {"response":{"executed":false,"error":"Invalid settings of parameneters."},"instrument_id":"1","period_id":"M1","candles":[]}.
+|ERROR|2020-10-31 19:21:14,083|Server reports an error: {'executed': False, 'error': 'Invalid settings of parameneters.'}.
+|ERROR|2020-10-31 19:21:14,083|URL: https://api-demo.fxcm.com:443/candles/1/M1?num=10&from=1580515200
+|ERROR|2020-10-31 19:21:14,083|Headers: {'User-Agent': 'request', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Authorization': 'Bearer 9HhwHYUoQz3ENZVoABXf21eebfcfacfecacfcbf3a5fe71db3fefbdeeaa71', 'Content-Type': 'application/x-www-form-urlencoded'}
+|ERROR|2020-10-31 19:21:14,083|Params: {'num': 10, 'from': 1580515200}
+|ERROR|2020-10-31 19:21:14,083|Bearer token: Bearer 9HhwHYUoQz3ENZVoABXf21eebfcfacfecacfcbf3a5fe71db3fefbdeeaa71
+|ERROR|2020-10-31 19:21:14,083|Connection status: established
+|ERROR|2020-10-31 19:21:14,083|Socket session id: 9HhwHYUoQz3ENZVoABXf
+|ERROR|2020-10-31 19:21:14,083|Can not parse server answer to json object: {"response":{"executed":false,"error":"Invalid settings of parameneters."},"instrument_id":"1","period_id":"M1","candles":[]}.
+|ERROR|2020-10-31 19:38:32,533|FXCM Server reports an unknown error: {'executed': False, 'error': ''}.
+|ERROR|2020-10-31 19:38:32,534|Can not parse server answer to json object: {"response":{"executed":false,"error":""},"instrument_id":"8001","period_id":"m15","candles":[]}.
+|ERROR|2020-10-31 19:38:45,051|Error in get_candles: Illegal param. number: 100000
+|ERROR|2020-10-31 19:38:48,380|FXCM Server reports an unknown error: {'executed': False, 'error': ''}.
+|ERROR|2020-10-31 19:38:48,380|Can not parse server answer to json object: {"response":{"executed":false,"error":""},"instrument_id":"8001","period_id":"m15","candles":[]}.
+|ERROR|2020-10-31 19:39:01,493|FXCM Server reports an unknown error: {'executed': False, 'error': ''}.
+|ERROR|2020-10-31 19:39:01,494|Can not parse server answer to json object: {"response":{"executed":false,"error":""},"instrument_id":"8001","period_id":"m15","candles":[]}.
+|ERROR|2020-10-31 19:39:04,841|FXCM Server reports an unknown error: {'executed': False, 'error': ''}.
+|ERROR|2020-10-31 19:39:04,841|Can not parse server answer to json object: {"response":{"executed":false,"error":""},"instrument_id":"8001","period_id":"m15","candles":[]}.
+|ERROR|2020-10-31 19:40:03,360|FXCM Server reports an unknown error: {'executed': False, 'error': ''}.
+|ERROR|2020-10-31 19:40:03,360|Can not parse server answer to json object: {"response":{"executed":false,"error":""},"instrument_id":"8001","period_id":"m15","candles":[]}.
+|ERROR|2020-10-31 19:43:42,719|FXCM Server reports an unknown error: {'executed': False, 'error': ''}.
+|ERROR|2020-10-31 19:43:42,719|Can not parse server answer to json object: {"response":{"executed":false,"error":""},"instrument_id":"11","period_id":"D1","candles":[]}.
+|ERROR|2020-10-31 19:47:54,388|FXCM Server reports an unknown error: {'executed': False, 'error': ''}.
+|ERROR|2020-10-31 19:47:54,389|Can not parse server answer to json object: {"response":{"executed":false,"error":""},"instrument_id":"1","period_id":"m1","candles":[]}.
