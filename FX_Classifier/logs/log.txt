@@ -1,0 +1,105 @@
+|ERROR|2020-11-02 23:34:43,675|Server reports an error: {'executed': False, 'error': 'Invalid from/to parameneters.'}.
+|ERROR|2020-11-02 23:34:43,676|URL: https://api-demo.fxcm.com:443/candles/10/m15?num=10&from=1546300800&to=1577836800
+|ERROR|2020-11-02 23:34:43,676|Headers: {'User-Agent': 'request', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Authorization': 'Bearer c-sKVhci00oba-yvAHUc21eebfcfacfecacfcbf3a5fe71db3fefbdeeaa71', 'Content-Type': 'application/x-www-form-urlencoded'}
+|ERROR|2020-11-02 23:34:43,677|Params: {'num': 10, 'from': 1546300800, 'to': 1577836800}
+|ERROR|2020-11-02 23:34:43,677|Bearer token: Bearer c-sKVhci00oba-yvAHUc21eebfcfacfecacfcbf3a5fe71db3fefbdeeaa71
+|ERROR|2020-11-02 23:34:43,680|Connection status: established
+|ERROR|2020-11-02 23:34:43,680|Socket session id: c-sKVhci00oba-yvAHUc
+|ERROR|2020-11-02 23:34:43,680|Can not parse server answer to json object: {"response":{"executed":false,"error":"Invalid from/to parameneters."},"instrument_id":"10","period_id":"m15","candles":[]}.
+|ERROR|2020-11-02 23:35:14,954|Server reports an error: {'executed': False, 'error': 'Invalid from/to parameneters.'}.
+|ERROR|2020-11-02 23:35:14,954|URL: https://api-demo.fxcm.com:443/candles/10/m15?num=10000&from=1546300800&to=1577836800
+|ERROR|2020-11-02 23:35:14,955|Headers: {'User-Agent': 'request', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Authorization': 'Bearer c-sKVhci00oba-yvAHUc21eebfcfacfecacfcbf3a5fe71db3fefbdeeaa71', 'Content-Type': 'application/x-www-form-urlencoded'}
+|ERROR|2020-11-02 23:35:14,955|Params: {'num': 10000, 'from': 1546300800, 'to': 1577836800}
+|ERROR|2020-11-02 23:35:14,955|Bearer token: Bearer c-sKVhci00oba-yvAHUc21eebfcfacfecacfcbf3a5fe71db3fefbdeeaa71
+|ERROR|2020-11-02 23:35:14,956|Connection status: established
+|ERROR|2020-11-02 23:35:14,956|Socket session id: c-sKVhci00oba-yvAHUc
+|ERROR|2020-11-02 23:35:14,956|Can not parse server answer to json object: {"response":{"executed":false,"error":"Invalid from/to parameneters."},"instrument_id":"10","period_id":"m15","candles":[]}.
+|ERROR|2020-11-02 23:46:37,176|FXCM Server reports an unknown error: {'executed': False, 'error': ''}.
+|ERROR|2020-11-02 23:46:37,177|Can not parse server answer to json object: {"response":{"executed":false,"error":""},"instrument_id":"10","period_id":"m30","candles":[]}.
+|ERROR|2020-11-02 23:47:22,008|FXCM Server reports an unknown error: {'executed': False, 'error': ''}.
+|ERROR|2020-11-02 23:47:22,008|Can not parse server answer to json object: {"response":{"executed":false,"error":""},"instrument_id":"10","period_id":"m30","candles":[]}.
+|ERROR|2020-11-02 23:47:30,362|FXCM Server reports an unknown error: {'executed': False, 'error': ''}.
+|ERROR|2020-11-02 23:47:30,362|Can not parse server answer to json object: {"response":{"executed":false,"error":""},"instrument_id":"10","period_id":"m30","candles":[]}.
+|ERROR|2020-11-02 23:48:34,714|Server reports an error: {'executed': False, 'error': 'Invalid from/to parameneters.'}.
+|ERROR|2020-11-02 23:48:34,715|URL: https://api-demo.fxcm.com:443/candles/10/m15?num=10&from=1577836800&to=1601596800
+|ERROR|2020-11-02 23:48:34,715|Headers: {'User-Agent': 'request', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Authorization': 'Bearer c-sKVhci00oba-yvAHUc21eebfcfacfecacfcbf3a5fe71db3fefbdeeaa71', 'Content-Type': 'application/x-www-form-urlencoded'}
+|ERROR|2020-11-02 23:48:34,715|Params: {'num': 10, 'from': 1577836800, 'to': 1601596800}
+|ERROR|2020-11-02 23:48:34,716|Bearer token: Bearer c-sKVhci00oba-yvAHUc21eebfcfacfecacfcbf3a5fe71db3fefbdeeaa71
+|ERROR|2020-11-02 23:48:34,716|Connection status: established
+|ERROR|2020-11-02 23:48:34,716|Socket session id: c-sKVhci00oba-yvAHUc
+|ERROR|2020-11-02 23:48:34,716|Can not parse server answer to json object: {"response":{"executed":false,"error":"Invalid from/to parameneters."},"instrument_id":"10","period_id":"m15","candles":[]}.
+|ERROR|2020-11-02 23:51:26,503|Server reports an error: {'executed': False, 'error': 'Invalid from/to parameneters.'}.
+|ERROR|2020-11-02 23:51:26,504|URL: https://api-demo.fxcm.com:443/candles/10/m15?num=10&from=1585699200&to=1604188800
+|ERROR|2020-11-02 23:51:26,504|Headers: {'User-Agent': 'request', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Authorization': 'Bearer c-sKVhci00oba-yvAHUc21eebfcfacfecacfcbf3a5fe71db3fefbdeeaa71', 'Content-Type': 'application/x-www-form-urlencoded'}
+|ERROR|2020-11-02 23:51:26,504|Params: {'num': 10, 'from': 1585699200, 'to': 1604188800}
+|ERROR|2020-11-02 23:51:26,504|Bearer token: Bearer c-sKVhci00oba-yvAHUc21eebfcfacfecacfcbf3a5fe71db3fefbdeeaa71
+|ERROR|2020-11-02 23:51:26,504|Connection status: established
+|ERROR|2020-11-02 23:51:26,505|Socket session id: c-sKVhci00oba-yvAHUc
+|ERROR|2020-11-02 23:51:26,505|Can not parse server answer to json object: {"response":{"executed":false,"error":"Invalid from/to parameneters."},"instrument_id":"10","period_id":"m15","candles":[]}.
+|ERROR|2020-11-02 23:51:59,740|Server reports an error: {'executed': False, 'error': 'Invalid from/to parameneters.'}.
+|ERROR|2020-11-02 23:51:59,741|URL: https://api-demo.fxcm.com:443/candles/10/m15?num=10&from=1585699200&to=1604188800
+|ERROR|2020-11-02 23:51:59,741|Headers: {'User-Agent': 'request', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Authorization': 'Bearer c-sKVhci00oba-yvAHUc21eebfcfacfecacfcbf3a5fe71db3fefbdeeaa71', 'Content-Type': 'application/x-www-form-urlencoded'}
+|ERROR|2020-11-02 23:51:59,742|Params: {'num': 10, 'from': 1585699200, 'to': 1604188800}
+|ERROR|2020-11-02 23:51:59,742|Bearer token: Bearer c-sKVhci00oba-yvAHUc21eebfcfacfecacfcbf3a5fe71db3fefbdeeaa71
+|ERROR|2020-11-02 23:51:59,742|Connection status: established
+|ERROR|2020-11-02 23:51:59,742|Socket session id: c-sKVhci00oba-yvAHUc
+|ERROR|2020-11-02 23:51:59,742|Can not parse server answer to json object: {"response":{"executed":false,"error":"Invalid from/to parameneters."},"instrument_id":"10","period_id":"m15","candles":[]}.
+|ERROR|2020-11-02 23:52:07,242|Server reports an error: {'executed': False, 'error': 'Invalid from/to parameneters.'}.
+|ERROR|2020-11-02 23:52:07,242|URL: https://api-demo.fxcm.com:443/candles/10/m15?num=10&from=1583020800&to=1604188800
+|ERROR|2020-11-02 23:52:07,242|Headers: {'User-Agent': 'request', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Authorization': 'Bearer c-sKVhci00oba-yvAHUc21eebfcfacfecacfcbf3a5fe71db3fefbdeeaa71', 'Content-Type': 'application/x-www-form-urlencoded'}
+|ERROR|2020-11-02 23:52:07,242|Params: {'num': 10, 'from': 1583020800, 'to': 1604188800}
+|ERROR|2020-11-02 23:52:07,242|Bearer token: Bearer c-sKVhci00oba-yvAHUc21eebfcfacfecacfcbf3a5fe71db3fefbdeeaa71
+|ERROR|2020-11-02 23:52:07,242|Connection status: established
+|ERROR|2020-11-02 23:52:07,242|Socket session id: c-sKVhci00oba-yvAHUc
+|ERROR|2020-11-02 23:52:07,242|Can not parse server answer to json object: {"response":{"executed":false,"error":"Invalid from/to parameneters."},"instrument_id":"10","period_id":"m15","candles":[]}.
+|ERROR|2020-11-02 23:52:13,740|Server reports an error: {'executed': False, 'error': 'Invalid from/to parameneters.'}.
+|ERROR|2020-11-02 23:52:13,740|URL: https://api-demo.fxcm.com:443/candles/10/m15?num=10&from=1585785600&to=1604188800
+|ERROR|2020-11-02 23:52:13,741|Headers: {'User-Agent': 'request', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Authorization': 'Bearer c-sKVhci00oba-yvAHUc21eebfcfacfecacfcbf3a5fe71db3fefbdeeaa71', 'Content-Type': 'application/x-www-form-urlencoded'}
+|ERROR|2020-11-02 23:52:13,741|Params: {'num': 10, 'from': 1585785600, 'to': 1604188800}
+|ERROR|2020-11-02 23:52:13,741|Bearer token: Bearer c-sKVhci00oba-yvAHUc21eebfcfacfecacfcbf3a5fe71db3fefbdeeaa71
+|ERROR|2020-11-02 23:52:13,741|Connection status: established
+|ERROR|2020-11-02 23:52:13,741|Socket session id: c-sKVhci00oba-yvAHUc
+|ERROR|2020-11-02 23:52:13,742|Can not parse server answer to json object: {"response":{"executed":false,"error":"Invalid from/to parameneters."},"instrument_id":"10","period_id":"m15","candles":[]}.
+|ERROR|2020-11-02 23:52:17,917|Server reports an error: {'executed': False, 'error': 'Invalid from/to parameneters.'}.
+|ERROR|2020-11-02 23:52:17,917|URL: https://api-demo.fxcm.com:443/candles/10/m15?num=10&from=1585872000&to=1604188800
+|ERROR|2020-11-02 23:52:17,918|Headers: {'User-Agent': 'request', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Authorization': 'Bearer c-sKVhci00oba-yvAHUc21eebfcfacfecacfcbf3a5fe71db3fefbdeeaa71', 'Content-Type': 'application/x-www-form-urlencoded'}
+|ERROR|2020-11-02 23:52:17,918|Params: {'num': 10, 'from': 1585872000, 'to': 1604188800}
+|ERROR|2020-11-02 23:52:17,918|Bearer token: Bearer c-sKVhci00oba-yvAHUc21eebfcfacfecacfcbf3a5fe71db3fefbdeeaa71
+|ERROR|2020-11-02 23:52:17,919|Connection status: established
+|ERROR|2020-11-02 23:52:17,919|Socket session id: c-sKVhci00oba-yvAHUc
+|ERROR|2020-11-02 23:52:17,919|Can not parse server answer to json object: {"response":{"executed":false,"error":"Invalid from/to parameneters."},"instrument_id":"10","period_id":"m15","candles":[]}.
+|ERROR|2020-11-03 14:35:33,493|Connection error: Authentication timed out. Please try again.
+|ERROR|2020-11-03 20:08:36,892|Connection error: Connection refused by the server
+|ERROR|2020-11-04 09:47:55,729|Connection error: Connection refused by the server
+|ERROR|2020-11-04 09:47:57,451|Connection error: Connection refused by the server
+|ERROR|2020-11-04 09:48:06,757|Connection error: Connection refused by the server
+|ERROR|2020-11-04 09:48:11,748|Connection error: Connection refused by the server
+|ERROR|2020-11-04 09:48:16,538|Connection error: Connection refused by the server
+|ERROR|2020-11-04 09:48:21,289|Connection error: Connection refused by the server
+|ERROR|2020-11-04 09:48:27,573|Connection error: Connection refused by the server
+|ERROR|2020-11-04 09:48:32,522|Connection error: Connection refused by the server
+|ERROR|2020-11-04 11:02:44,853|Connection error: Connection refused by the server
+|ERROR|2020-11-04 11:02:57,524|Connection error: Connection refused by the server
+|ERROR|2020-11-04 11:04:05,453|Connection error: Authentication timed out. Please try again.
+|ERROR|2020-11-04 12:26:56,944|Connection error: Connection refused by the server
+|ERROR|2020-11-04 12:28:55,420|Connection error: Timed out loading data. Please try again.
+|ERROR|2020-11-04 19:10:08,437|Connection error: Connection refused by the server
+|ERROR|2020-11-04 19:10:21,177|Connection error: Connection refused by the server
+|ERROR|2020-11-04 19:10:37,071|Connection error: Connection refused by the server
+|ERROR|2020-11-04 19:12:26,192|Connection error: Connection refused by the server
+|ERROR|2020-11-04 19:12:48,649|Connection error: Connection refused by the server
+|ERROR|2020-11-04 19:13:07,544|Connection error: Connection refused by the server
+|ERROR|2020-11-04 19:13:12,998|Connection error: Connection refused by the server
+|ERROR|2020-11-04 20:07:44,038|Connection error: Authentication timed out. Please try again.
+|ERROR|2020-11-04 21:18:00,140|Connection error: Connection refused by the server
+|ERROR|2020-11-04 21:18:13,166|Connection error: Connection refused by the server
+|ERROR|2020-11-04 21:18:17,123|Connection error: Connection refused by the server
+|ERROR|2020-11-04 21:18:33,171|Connection error: Connection refused by the server
+|ERROR|2020-11-04 21:18:37,713|Connection error: Connection refused by the server
+|ERROR|2020-11-05 01:51:13,922|Connection error: Connection refused by the server
+|ERROR|2020-11-05 01:51:15,871|Connection error: Connection refused by the server
+|ERROR|2020-11-05 01:51:20,123|Connection error: Connection refused by the server
+|ERROR|2020-11-05 01:51:25,323|Connection error: Connection refused by the server
+|ERROR|2020-11-05 01:51:30,424|Connection error: Connection refused by the server
+|ERROR|2020-11-05 01:51:35,448|Connection error: Connection refused by the server
+|ERROR|2020-11-05 01:51:51,988|Connection error: Connection refused by the server
