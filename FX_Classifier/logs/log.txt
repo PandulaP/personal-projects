@@ -103,3 +103,19 @@
 |ERROR|2020-11-05 01:51:30,424|Connection error: Connection refused by the server
 |ERROR|2020-11-05 01:51:35,448|Connection error: Connection refused by the server
 |ERROR|2020-11-05 01:51:51,988|Connection error: Connection refused by the server
+|ERROR|2020-11-16 16:49:51,711|Socket returns unknown error.
+|ERROR|2020-11-16 16:49:54,805|Socket returns unknown error.
+|ERROR|2020-11-16 16:51:55,438|Socket returns unknown error.
+|ERROR|2020-11-16 16:53:13,169|Socket returns unknown error.
+|ERROR|2020-11-16 16:57:11,188|Connection error: Connection refused by the server
+|ERROR|2020-11-16 16:57:24,149|Connection error: Connection refused by the server
+|ERROR|2020-11-16 16:57:28,025|Connection error: Connection refused by the server
+|ERROR|2020-11-16 17:27:34,360|Server reports an error: {'executed': False, 'error': 'Invalid from/to parameneters.'}.
+|ERROR|2020-11-16 17:27:34,362|URL: https://api-demo.fxcm.com:443/candles/1/m15?num=10&from=1583280000&to=1604188800
+|ERROR|2020-11-16 17:27:34,362|Headers: {'User-Agent': 'request', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Authorization': 'Bearer jOx8fWr4A_9THE00AD4i90913a5692cf1b010b9d630abf4e5c4c83d87aa5', 'Content-Type': 'application/x-www-form-urlencoded'}
+|ERROR|2020-11-16 17:27:34,362|Params: {'num': 10, 'from': 1583280000, 'to': 1604188800}
+|ERROR|2020-11-16 17:27:34,362|Bearer token: Bearer jOx8fWr4A_9THE00AD4i90913a5692cf1b010b9d630abf4e5c4c83d87aa5
+|ERROR|2020-11-16 17:27:34,363|Connection status: established
+|ERROR|2020-11-16 17:27:34,363|Socket session id: jOx8fWr4A_9THE00AD4i
+|ERROR|2020-11-16 17:27:34,363|Can not parse server answer to json object: {"response":{"executed":false,"error":"Invalid from/to parameneters."},"instrument_id":"1","period_id":"m15","candles":[]}.
+|ERROR|2020-11-16 17:28:44,749|Error in get_candles: Illegal param. number: 20000
