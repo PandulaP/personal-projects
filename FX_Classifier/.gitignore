@@ -1,0 +1,6 @@
+*config.py
+.ipynb_checkpoints
+*log.txt
+*.cfg
+log.txt
+[Ll]ogs/
