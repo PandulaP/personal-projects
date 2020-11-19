@@ -1,2 +1,8 @@
 *config.py
 .ipynb_checkpoints
+*log.txt
+*.cfg
+log.txt
+/FX Predictor/data/fx_data/**.jpg
+[Ll]ogs/
+.gitignore
