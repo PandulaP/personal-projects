@@ -30,3 +30,5 @@ This folder contains the below 7 folders.
  - contains the notebook which runs the core DQN algorithm (full experiment)
  - contains the saved model weights for the DQN (in train_dir)
  - contains the saved I-LEARN model
+ 
+ The "Designing a sample-efficient RL Setup with NLP" paper is written based on this experiment.
