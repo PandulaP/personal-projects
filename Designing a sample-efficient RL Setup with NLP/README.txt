@@ -1,4 +1,4 @@
-This folder contains the python scripts and data that I (Pandula Priyadarshana) use in my final project submission for the RL4NLP couse (2020).
+This folder contains the python scripts and data that I (Pandula Priyadarshana) use in my final research project submission for the RL4NLP course (2020).
 
 This folder contains the below 7 folders.
 
@@ -32,5 +32,5 @@ This folder contains the below 7 folders.
  - contains the saved I-LEARN model
  
 8. [Paper] Designing a sample-efficient RL Setup with NLP
- - research paper written based on this research project
- The "Designing a sample-efficient RL Setup with NLP" paper is written based on this experiment.
+ - a paper written on this research project
+ 
