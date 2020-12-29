@@ -56,6 +56,7 @@ def create_chart_parellel(df_chunk):
                             , figratio = (12,8)
                             , tight_layout = True
                             , addplot = apds
+                            , axisoff=True
                             , panel_ratios = (6,1)
                             , fill_between = dict(y1 = temp_df['ewm_50_h'].values
                                                   , y2 = temp_df['ewm_50_l'].values
